@@ -6,7 +6,20 @@
     app:startDestination="@id/mainFragment">
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.example.catsapi.MainFragment"
+        android:name="com.example.catsapi.ui.MainFragment"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_catInfoFragment"
+            app:destination="@id/catInfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/catInfoFragment"
+        android:name="com.example.catsapi.ui.CatInfoFragment"
+        android:label="fragment_cat_info"
+        tools:layout="@layout/fragment_cat_info" >
+        <action
+            android:id="@+id/action_catInfoFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
 </navigation>
