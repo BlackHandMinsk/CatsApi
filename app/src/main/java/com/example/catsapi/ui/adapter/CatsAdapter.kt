@@ -42,7 +42,7 @@ class CatsAdapter : PagingDataAdapter<String, RecyclerView.ViewHolder>(REPO_COMP
     override fun onViewAttachedToWindow(holder: RecyclerView.ViewHolder) {
         holder.itemView.setOnClickListener {
             val action  =
-                MainFragmentDirections.actionMainFragmentToCatInfoFragment()
+                MainFragmentDirections.actionMainFragmentToCatInfoFragment(getItem(holder.bindingAdapterPosition).toString())
             holder.itemView.findNavController().navigate(action)
         }
     }
