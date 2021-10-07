@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 
 import com.example.catsapi.databinding.FragmentMainBinding
 import com.example.catsapi.ui.adapter.CatsAdapter
+import com.example.catsapi.ui.adapter.LoaderStateAdapter
 import kotlinx.coroutines.launch
 
 
@@ -21,6 +22,8 @@ class MainFragment : Fragment() {
     private var _binding: FragmentMainBinding? = null
     private val mBinding get() = _binding!!
     private  var mAdapter: CatsAdapter = CatsAdapter()
+    private var loaderStateAdapter: LoaderStateAdapter = LoaderStateAdapter { mAdapter.retry() }
+
     @ExperimentalPagingApi
     private lateinit var mainViewModel:MainViewModel
 
@@ -66,7 +69,7 @@ class MainFragment : Fragment() {
 
     private fun setUpViews(view: View?) {
         mBinding.catsList.layoutManager = GridLayoutManager(context, 2)
-        mBinding.catsList.adapter = mAdapter
+        mBinding.catsList.adapter = mAdapter.withLoadStateFooter(loaderStateAdapter)
     }
 
 
