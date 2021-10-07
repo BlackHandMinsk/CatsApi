@@ -20,9 +20,10 @@ import kotlinx.coroutines.launch
 class MainFragment : Fragment() {
     private var _binding: FragmentMainBinding? = null
     private val mBinding get() = _binding!!
-    private lateinit var mAdapter: CatsAdapter
+    private  var mAdapter: CatsAdapter = CatsAdapter()
     @ExperimentalPagingApi
     private lateinit var mainViewModel:MainViewModel
+
 
 
     @ExperimentalPagingApi
@@ -32,7 +33,7 @@ class MainFragment : Fragment() {
     ): View {
         _binding = FragmentMainBinding.inflate(layoutInflater, container, false)
         setHasOptionsMenu(true)
-
+        //mAdapter = CatsAdapter()
         initMembers()
         setUpViews(view)
         fetchCatGoImagesLiveData()
@@ -61,7 +62,6 @@ class MainFragment : Fragment() {
     @ExperimentalPagingApi
     private fun initMembers() {
         mainViewModel = defaultViewModelProviderFactory.create(MainViewModel::class.java)
-        mAdapter = CatsAdapter()
     }
 
     private fun setUpViews(view: View?) {

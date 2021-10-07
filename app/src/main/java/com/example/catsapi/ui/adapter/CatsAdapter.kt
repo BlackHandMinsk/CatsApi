@@ -59,6 +59,7 @@ class CatsAdapter : PagingDataAdapter<String, RecyclerView.ViewHolder>(REPO_COMP
             }
         }
 
+
         var ivCatMain: ImageView = view.findViewById(R.id.cat_image)
 
         fun bind(item: String?) {
