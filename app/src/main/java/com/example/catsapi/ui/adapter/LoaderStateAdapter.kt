@@ -21,13 +21,10 @@ class LoaderStateAdapter(private val retry: () -> Unit) :
         return LoaderViewHolder.getInstance(parent, retry)
     }
 
-    /**
-     * view holder class for footer loader and error state handling
-     */
+
     class LoaderViewHolder(view: View, retry: () -> Unit) : RecyclerView.ViewHolder(view) {
 
         companion object {
-            //get instance of the DoggoImageViewHolder
             fun getInstance(parent: ViewGroup, retry: () -> Unit): LoaderViewHolder {
                 val inflater = LayoutInflater.from(parent.context)
                 val view = inflater.inflate(R.layout.cats_item_loader, parent, false)

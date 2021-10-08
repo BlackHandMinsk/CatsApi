@@ -12,6 +12,7 @@ import androidx.paging.ExperimentalPagingApi
 import androidx.recyclerview.widget.GridLayoutManager
 
 import com.example.catsapi.databinding.FragmentMainBinding
+import com.example.catsapi.setBackGroundAnimation
 import com.example.catsapi.ui.adapter.CatsAdapter
 import com.example.catsapi.ui.adapter.LoaderStateAdapter
 import kotlinx.coroutines.launch
@@ -40,20 +41,20 @@ class MainFragment : Fragment() {
         initMembers()
         setUpViews(view)
         fetchCatGoImagesLiveData()
-        backgroundAnimation()
+        setBackGroundAnimation(mBinding.mainLayout.background as AnimationDrawable)
 
 
         return mBinding.root
     }
 
-    private fun backgroundAnimation() {
-        val animationDrawable: AnimationDrawable = mBinding.mainLayout.background as AnimationDrawable
-        animationDrawable.apply {
-            setEnterFadeDuration(1000)
-            setExitFadeDuration(3000)
-            start()
-        }
-    }
+//    private fun backgroundAnimation() {
+//        val animationDrawable: AnimationDrawable = mBinding.mainLayout.background as AnimationDrawable
+//        animationDrawable.apply {
+//            setEnterFadeDuration(1000)
+//            setExitFadeDuration(3000)
+//            start()
+//        }
+//    }
 
 
     override fun onDestroyView() {

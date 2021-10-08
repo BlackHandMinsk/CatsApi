@@ -8,10 +8,8 @@ import androidx.navigation.findNavController
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import coil.api.load
-import com.bumptech.glide.Glide
 import com.example.catsapi.R
-import com.example.catsapi.model.CatImageModel
+import com.example.catsapi.placePictureInView
 import com.example.catsapi.ui.MainFragmentDirections
 
 class CatsAdapter : PagingDataAdapter<String, RecyclerView.ViewHolder>(REPO_COMPARATOR) {
@@ -63,7 +61,8 @@ class CatsAdapter : PagingDataAdapter<String, RecyclerView.ViewHolder>(REPO_COMP
         var ivCatMain: ImageView = view.findViewById(R.id.cat_image)
 
         fun bind(item: String?) {
-            Glide.with(ivCatMain.context).load(item).into(ivCatMain)
+            placePictureInView(ivCatMain,item)
+//            Glide.with(ivCatMain.context).load(item).into(ivCatMain)
         }
 
     }
