@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.ExperimentalPagingApi
 import androidx.recyclerview.widget.GridLayoutManager
@@ -30,6 +31,9 @@ class MainFragment : Fragment() {
 
 
 
+
+
+
     @ExperimentalPagingApi
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,24 +41,16 @@ class MainFragment : Fragment() {
     ): View {
         _binding = FragmentMainBinding.inflate(layoutInflater, container, false)
         setHasOptionsMenu(true)
-        //mAdapter = CatsAdapter()
         initMembers()
         setUpViews(view)
         fetchCatGoImagesLiveData()
-        setBackGroundAnimation(mBinding.mainLayout.background as AnimationDrawable)
+         setBackGroundAnimation(mBinding.mainLayout.background as AnimationDrawable)
+
 
 
         return mBinding.root
     }
 
-//    private fun backgroundAnimation() {
-//        val animationDrawable: AnimationDrawable = mBinding.mainLayout.background as AnimationDrawable
-//        animationDrawable.apply {
-//            setEnterFadeDuration(1000)
-//            setExitFadeDuration(3000)
-//            start()
-//        }
-//    }
 
 
     override fun onDestroyView() {

@@ -50,7 +50,7 @@ class CatInfoFragment : Fragment(){
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentCatInfoBinding.inflate(layoutInflater, container, false)
         setHasOptionsMenu(true)
 
@@ -71,16 +71,15 @@ class CatInfoFragment : Fragment(){
 
 
     private fun saveImage(bitmap: Bitmap){
-       // binding.progressBar.visibility = View.VISIBLE
-        val imageFileName = "SMILE_" + Random.nextInt()
+
+        val imageFileName = "CAT_" + Random.nextInt()
         val savedImageURL: String = MediaStore.Images.Media.insertImage(
             requireContext().contentResolver,
             bitmap,
             imageFileName,
-            "Promo Image"
+            "CaT Image"
         )
         Handler().postDelayed({
-      //      binding.progressBar.visibility = View.GONE
             Toast.makeText(requireContext(),"Image Downloaded",Toast.LENGTH_LONG).show()
         },1000*5)
     }

@@ -11,7 +11,11 @@
         tools:layout="@layout/fragment_main" >
         <action
             android:id="@+id/action_mainFragment_to_catInfoFragment"
-            app:destination="@id/catInfoFragment" />
+            app:destination="@id/catInfoFragment"
+            app:enterAnim="@anim/card_flip_right_enter"
+            app:exitAnim="@anim/card_flip_right_exit"
+            app:popEnterAnim="@anim/card_flip_left_enter"
+            app:popExitAnim="@anim/card_flip_left_exit" />
     </fragment>
     <fragment
         android:id="@+id/catInfoFragment"
@@ -20,7 +24,11 @@
         tools:layout="@layout/fragment_cat_info" >
         <action
             android:id="@+id/action_catInfoFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
+            app:destination="@id/mainFragment"
+            app:enterAnim="@anim/card_flip_left_enter"
+            app:exitAnim="@anim/card_flip_right_exit"
+            app:popEnterAnim="@anim/card_flip_left_enter"
+            app:popExitAnim="@anim/card_flip_left_exit" />
         <argument
             android:name="url"
             app:argType="string" />

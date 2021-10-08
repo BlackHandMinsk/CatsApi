@@ -31,7 +31,9 @@ class CatGoImagePagingSource(private val catsApiService: CatsApiService) :
     }
 
     override fun getRefreshKey(state: PagingState<Int, CatImageModel>): Int? {
-        TODO("Not yet implemented")
+        val anchorPosition = state.anchorPosition ?: return null
+        val page = state.closestPageToPosition(anchorPosition) ?: return null
+        return page.prevKey?.plus(1) ?: page.nextKey?.minus(1)
     }
 
 }

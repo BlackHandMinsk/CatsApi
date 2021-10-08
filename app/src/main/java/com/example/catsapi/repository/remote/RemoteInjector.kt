@@ -29,7 +29,7 @@ object RemoteInjector {
         return object : Interceptor {
             override fun intercept(chain: Interceptor.Chain): Response {
                 val newRequest =
-                    chain.request().newBuilder().addHeader("x-api-key", "50f467ad-8a4d-4761-9fc6-dbeaceb9003c").build()
+                    chain.request().newBuilder().addHeader(HEADER_API_KEY, API_KEY).build()
                 return chain.proceed(newRequest)
             }
         }

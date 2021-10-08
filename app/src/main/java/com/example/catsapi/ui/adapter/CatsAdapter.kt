@@ -1,5 +1,6 @@
 package com.example.catsapi.ui.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -62,7 +63,6 @@ class CatsAdapter : PagingDataAdapter<String, RecyclerView.ViewHolder>(REPO_COMP
 
         fun bind(item: String?) {
             placePictureInView(ivCatMain,item)
-//            Glide.with(ivCatMain.context).load(item).into(ivCatMain)
         }
 
     }
